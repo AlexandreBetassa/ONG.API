@@ -1,24 +1,24 @@
 ﻿using MediatR;
 using ONG.Person.Api.Domain.Enums.v1;
 
-namespace ONG.Person.Api.Domain.Commands.v1.Person.CreatePerson
+namespace ONG.Person.Api.Domain.Commands.v1.Person.UpdatePerson
 {
-    public class CreatePersonCommand : IRequest<Unit>
+    public class UpdatePersonCommand : IRequest<Unit>
     {
+        public Guid Id { get; set; }
         public string Name { get; set; }
         public string Cpf { get; set; }
         public DateTime Birthday { get; set; }
-        public CreatePersonContactCommand Contact { get; set; }
-        public CreatePersonAddressCommand Address { get; set; }
+        public UpdatePersonContactCommand Contact { get; set; }
+        public UpdatePersonAddressCommand Address { get; set; }
     }
-
-    public class CreatePersonContactCommand
+    public class UpdatePersonContactCommand
     {
         public string Number { get; set; }
         public TypeContactEnum TypeContact { get; set; }
     }
 
-    public class CreatePersonAddressCommand
+    public class UpdatePersonAddressCommand
     {
         public string PostalCode { get; set; }
         public string Street { get; set; }

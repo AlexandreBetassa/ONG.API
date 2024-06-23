@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using ONG.Person.Api.Domain.Commands.v1.Person.CreatePerson;
+using ONG.Person.Api.Domain.Queries.v1.GetPersonByCpf;
 
 namespace ONG.Person.Api.Controllers.v1
 {
@@ -24,9 +25,7 @@ namespace ONG.Person.Api.Controllers.v1
         [HttpGet("{cpf}")]
         public async Task<IActionResult> GetByCpfAsync([FromRoute] string cpf)
         {
-            //await Mediator.Send();
-
-            return Ok();
+            return Ok(await Mediator.Send(new GetPersonByCpfQuery(cpf)));
         }
     }
 }
