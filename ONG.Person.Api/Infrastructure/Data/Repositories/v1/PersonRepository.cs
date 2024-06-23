@@ -11,7 +11,10 @@ namespace ONG.Person.Api.Infrastructure.Data.Repositories.v1
             await _data.Create(person);
 
         public async Task<Domain.Entities.v1.Person> GetByCpf(string cpf) =>
-            await _data.Ctx.Set<Domain.Entities.v1.Person>().FirstOrDefaultAsync(person => person.Cpf == cpf);
+            await _data.Ctx.Set<Domain.Entities.v1.Person>()
+            .Include(a => a.Address)
+            .Include(c => c.Contact)
+            .FirstOrDefaultAsync(person => person.Cpf == cpf);
 
     }
 }
