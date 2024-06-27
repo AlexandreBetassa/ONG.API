@@ -4,5 +4,6 @@
     {
         Task<T> GetByCpf(string cpf);
         Task Create(T person);
+        Task Update(T person);
     }
 }
