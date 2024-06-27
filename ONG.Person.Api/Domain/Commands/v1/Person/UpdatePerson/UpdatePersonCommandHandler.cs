@@ -21,7 +21,7 @@ namespace ONG.Person.Api.Domain.Commands.v1.Person.UpdatePerson
                 var person = await UnityOfWork.PersonRepository.GetByCpf(request.Cpf) 
                     ?? throw new ArgumentException("usuário nao localizado");
 
-                person = Mapper.Map<Entities.v1.Person>(request);
+                person = Mapper.Map<Entities.v1.Persons.Person>(request);
 
                 await UnityOfWork.PersonRepository.Update(person);
 

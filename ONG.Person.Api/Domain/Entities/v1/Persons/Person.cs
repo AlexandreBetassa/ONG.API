@@ -1,4 +1,4 @@
-﻿namespace ONG.Person.Api.Domain.Entities.v1
+﻿namespace ONG.Person.Api.Domain.Entities.v1.Persons
 {
     public class Person : BaseEntity
     {

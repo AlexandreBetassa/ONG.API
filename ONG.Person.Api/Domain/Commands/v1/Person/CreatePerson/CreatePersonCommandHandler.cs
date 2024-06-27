@@ -28,7 +28,7 @@ namespace ONG.Person.Api.Domain.Commands.v1.Person.CreatePerson
                     throw new ArgumentException("usuário já cadastrado!!!");
                 }
 
-                var person = Mapper.Map<Entities.v1.Person>(request);
+                var person = Mapper.Map<Entities.v1.Persons.Person>(request);
 
                 await UnityOfWork.PersonRepository.Create(person);
 

@@ -30,6 +30,7 @@ builder.Services.AddAutoMapper(opt =>
 
 builder.Services.AddScoped(typeof(IData<>), typeof(Data<>));
 builder.Services.AddTransient(typeof(IPersonRepository<>), typeof(PersonRepository<>));
+builder.Services.AddTransient(typeof(IPetRepository<>), typeof(PetRepository<>));
 builder.Services.AddTransient<IUnityOfWork, UnityOfWork>();
 builder.Services.AddTransient<ILoggerFactory, LoggerFactory>();
 
