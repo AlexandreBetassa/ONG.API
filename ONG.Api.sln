@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ONG.Person.Api", "ONG.Person.Api\ONG.Person.Api.csproj", "{0831EFC9-F00D-4BDC-9F1D-23D9F015BF04}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ONG.Api", "ONG.Api\ONG.Api.csproj", "{38CB156E-8DDA-4DE8-ADC7-A50F3C8C91DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0831EFC9-F00D-4BDC-9F1D-23D9F015BF04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0831EFC9-F00D-4BDC-9F1D-23D9F015BF04}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0831EFC9-F00D-4BDC-9F1D-23D9F015BF04}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0831EFC9-F00D-4BDC-9F1D-23D9F015BF04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38CB156E-8DDA-4DE8-ADC7-A50F3C8C91DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38CB156E-8DDA-4DE8-ADC7-A50F3C8C91DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38CB156E-8DDA-4DE8-ADC7-A50F3C8C91DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38CB156E-8DDA-4DE8-ADC7-A50F3C8C91DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
