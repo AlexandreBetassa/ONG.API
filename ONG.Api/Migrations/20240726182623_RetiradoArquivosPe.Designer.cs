@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using ONG.Api.Infrastructure.Data.Context;
+using ONG.Api.Infrastructure.Data.v1.Context;
 
 
 #nullable disable

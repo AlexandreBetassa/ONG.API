@@ -10,8 +10,8 @@ using ONG.Api.Domain.Interfaces.v1.Repositories;
 using ONG.Api.Domain.Interfaces.v1.Services;
 using ONG.Api.Infrastructure.Configurations.v1;
 using ONG.Api.Infrastructure.Data;
-using ONG.Api.Infrastructure.Data.Context;
-using ONG.Api.Infrastructure.Data.Repositories.v1;
+using ONG.Api.Infrastructure.Data.v1.Context;
+using ONG.Api.Infrastructure.Data.v1.Repositories;
 using ONG.Api.Services.v1;
 using System.Text;
 
@@ -32,7 +32,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.Configure<JwtConfiguration>(builder.Configuration.GetSection("JwtConfiguration"));
+builder.Services.Configure<JwtConfiguration>(builder.Configuration.GetSection(nameof(JwtConfiguration)));
 
 builder.Services.AddMediatR(opt =>
                                 opt.RegisterServicesFromAssembly(typeof(CreatePersonCommandHandler).Assembly));
@@ -54,7 +54,7 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(buil
 // Configurando autenticação via swagger
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "API Authenticação", Version = "v1" });
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "API ONG - AdotaPet", Version = "v1" });
 
     c.AddSecurityDefinition("bearer", new OpenApiSecurityScheme
     {
@@ -105,7 +105,6 @@ builder.Services
             ValidateAudience = true
         };
     });
-
 
 builder.Services.AddAuthorizationBuilder()
     .AddPolicy("write", policy => policy.RequireRole(jwtConfig.WriteRoles))
