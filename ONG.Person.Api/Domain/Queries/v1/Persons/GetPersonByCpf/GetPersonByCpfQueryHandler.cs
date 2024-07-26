@@ -4,7 +4,7 @@ using ONG.Person.Api.Domain.Commands.v1;
 using ONG.Person.Api.Domain.Commands.v1.Person.CreatePerson;
 using ONG.Person.Api.Domain.Interfaces.v1;
 
-namespace ONG.Person.Api.Domain.Queries.v1.GetPersonByCpf
+namespace ONG.Person.Api.Domain.Queries.v1.Person.GetPersonByCpf
 {
     public class GetPersonByCpfQueryHandler : BaseCommandhandler, IRequestHandler<GetPersonByCpfQuery, GetPersonByCpfQueryResponse>
     {
@@ -21,7 +21,7 @@ namespace ONG.Person.Api.Domain.Queries.v1.GetPersonByCpf
             {
                 Logger.LogInformation($"Iniciando metodo {nameof(GetPersonByCpfQueryHandler)}.{nameof(Handle)}");
 
-                var person = await UnityOfWork.PersonRepository.GetByCpf(request.Cpf) 
+                var person = await UnityOfWork.PersonRepository.GetByCpf(request.Cpf)
                     ?? throw new ArgumentException("Usuário não localizado!");
 
                 var response = Mapper.Map<GetPersonByCpfQueryResponse>(person);

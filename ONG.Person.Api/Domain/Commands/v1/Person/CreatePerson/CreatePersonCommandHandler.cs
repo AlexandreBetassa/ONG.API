@@ -2,15 +2,19 @@
 using MediatR;
 using ONG.Person.Api.Domain.Commands.v1;
 using ONG.Person.Api.Domain.Interfaces.v1;
+using ONG.Person.Api.Domain.Interfaces.v1.Services;
 
 namespace ONG.Person.Api.Domain.Commands.v1.Person.CreatePerson
 {
     public class CreatePersonCommandHandler : BaseCommandhandler, IRequestHandler<CreatePersonCommand, Unit>
     {
-        public CreatePersonCommandHandler(ILoggerFactory loggerFactory, IMapper mapper, IUnityOfWork unityOfWork)
+        private readonly IPasswordServices _passwordServices;   
+
+        public CreatePersonCommandHandler(ILoggerFactory loggerFactory, IMapper mapper, IUnityOfWork unityOfWork, IPasswordServices passwordServices)
             : base(mapper, unityOfWork)
         {
             Logger = loggerFactory.CreateLogger<CreatePersonCommandHandler>();
+            _passwordServices = passwordServices;
         }
 
         public async Task<Unit> Handle(CreatePersonCommand request, CancellationToken cancellationToken)
@@ -29,6 +33,7 @@ namespace ONG.Person.Api.Domain.Commands.v1.Person.CreatePerson
                 }
 
                 var person = Mapper.Map<Entities.v1.Persons.Person>(request);
+                person.Password = _passwordServices.HashPassword(person);
 
                 await UnityOfWork.PersonRepository.Create(person);
 

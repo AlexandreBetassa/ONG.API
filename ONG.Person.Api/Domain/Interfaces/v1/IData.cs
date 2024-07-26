@@ -7,6 +7,6 @@ namespace ONG.Person.Api.Domain.Interfaces.v1
         public AppDbContext Ctx { get; }
         Task Update(T entity);
         Task Create(T entity);
-        Task<T> GetById(Guid id);
+        Task<T> GetById(string id);
     }
 }

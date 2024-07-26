@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using ONG.Person.Api.Domain.Commands.v1.Person.CreatePerson;
 using ONG.Person.Api.Domain.Commands.v1.Person.UpdatePerson;
-using ONG.Person.Api.Domain.Queries.v1.GetPersonByCpf;
+using ONG.Person.Api.Domain.Queries.v1.Person.GetPersonByCpf;
 
 namespace ONG.Person.Api.Controllers.v1
 {

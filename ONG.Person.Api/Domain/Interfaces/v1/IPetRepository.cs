@@ -5,5 +5,6 @@ namespace ONG.Person.Api.Domain.Interfaces.v1
     public interface IPetRepository<T> where T : Pet
     {
         Task Create(T pet);
+        Task<T> GetById(string id);
     }
 }

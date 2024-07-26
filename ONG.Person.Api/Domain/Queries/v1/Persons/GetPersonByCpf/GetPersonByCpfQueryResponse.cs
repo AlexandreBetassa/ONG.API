@@ -1,6 +1,6 @@
 ﻿using ONG.Person.Api.Domain.Enums.v1;
 
-namespace ONG.Person.Api.Domain.Queries.v1.GetPersonByCpf
+namespace ONG.Person.Api.Domain.Queries.v1.Person.GetPersonByCpf
 {
     public class GetPersonByCpfQueryResponse
     {

@@ -16,10 +16,10 @@ namespace ONG.Person.Api.Infrastructure.Data
             await ctx.SaveChangesAsync();
         }
 
-        public async Task<T> GetById(Guid id) =>
+        public async Task<T> GetById(string id) =>
             await ctx.Set<T>()
             .AsNoTracking()
-            .FirstOrDefaultAsync(x => x.Id == id);
+            .FirstOrDefaultAsync(x => x.Id.ToString() == id);
 
         public async Task Update(T entity)
         {

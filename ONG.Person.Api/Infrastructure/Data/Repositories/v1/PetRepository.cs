@@ -11,5 +11,7 @@ namespace ONG.Person.Api.Infrastructure.Data.Repositories.v1
         {
             await _data.Create(pet);
         }
+
+        public async Task<T> GetById(string id) => await _data.GetById(id);
     }
 }

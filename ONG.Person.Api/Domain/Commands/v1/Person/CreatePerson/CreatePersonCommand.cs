@@ -10,6 +10,8 @@ namespace ONG.Person.Api.Domain.Commands.v1.Person.CreatePerson
         public DateTime Birthday { get; set; }
         public CreatePersonContactCommand Contact { get; set; }
         public CreatePersonAddressCommand Address { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
     }
 
     public class CreatePersonContactCommand
