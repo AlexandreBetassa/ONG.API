@@ -106,7 +106,6 @@ builder.Services
         };
     });
 
-
 builder.Services.AddAuthorizationBuilder()
     .AddPolicy("write", policy => policy.RequireRole(jwtConfig.WriteRoles))
     .AddPolicy("read", policy => policy.RequireRole(jwtConfig.ReadRoles));
