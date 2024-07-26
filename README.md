@@ -1,5 +1,5 @@
 # ONG Adota Pet
-Este projeto está sendo desenvolvido como estudo para a prática de desenvolvimento de software, aplicação de design patterns e aplicação de boas práticas de programação
+Este projeto está sendo desenvolvido como estudo para a prática de desenvolvimento de software, aplicação de design patterns e aplicação de boas práticas de programação, além de ser utilizado para um projeto de graduação.
 
 ## Objetivo da aplicação
 Está aplicação tem como objetivo ser o backend de uma aplicação WEB (que ainda será desenvolvida), onde uma ONG disponibilizará e efetuara o gerenciamento de de solicitações de adoções de animais bem como clientes poderão se cadastrarem e efetuarem solicitações para a adoção de algum pet disponivel.
@@ -18,5 +18,10 @@ Este projeto inicialmente contará com os modulos:
  - C# - .Net8
  - Containers
 
+ #### Backend - Design Patterns
+ - CQRS
+ - Unity of work
+
 #### Frontend
  - A Definir
+
