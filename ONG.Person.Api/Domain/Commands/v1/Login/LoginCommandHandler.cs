@@ -8,11 +8,17 @@ namespace ONG.Person.Api.Domain.Commands.v1.Login
     public class LoginCommandHandler : BaseCommandHandler, IRequestHandler<LoginCommand, string>
     {
         private readonly IPasswordServices _passwordServices;
+        private readonly ITokenService _tokenServices;
 
-        public LoginCommandHandler(IMapper mapper, IUnityOfWork unityOfWork, IPasswordServices passwordServices) 
+        public LoginCommandHandler(
+            IMapper mapper, 
+            IUnityOfWork unityOfWork, 
+            IPasswordServices passwordServices,
+            ITokenService tokenService) 
             : base(mapper, unityOfWork)
         {
             _passwordServices = passwordServices;
+            _tokenServices = tokenService;
         }
 
         public async Task<string> Handle(LoginCommand request, CancellationToken cancellationToken)
@@ -25,8 +31,7 @@ namespace ONG.Person.Api.Domain.Commands.v1.Login
             if (!isValidUser)
                 throw new UnauthorizedAccessException("Email/Senha inválidos");
 
-
-            throw new NotImplementedException();
+            return _tokenServices.GenerateToken(person);
         }
     }
 }

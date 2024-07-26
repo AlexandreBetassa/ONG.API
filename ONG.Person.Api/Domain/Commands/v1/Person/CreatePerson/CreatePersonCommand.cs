@@ -12,6 +12,7 @@ namespace ONG.Person.Api.Domain.Commands.v1.Person.CreatePerson
         public CreatePersonAddressCommand Address { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+        public string[] Roles { get; set; }
     }
 
     public class CreatePersonContactCommand

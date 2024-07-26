@@ -21,7 +21,7 @@ namespace ONG.Person.Api.Infrastructure.Data.Repositories.v1
         {
             return await _data.Ctx.Set<Domain.Entities.v1.Persons.Person>()
                 .AsNoTracking()
-                .FirstOrDefaultAsync(x => x.Email.Equals(email, StringComparison.InvariantCultureIgnoreCase));
+                .FirstOrDefaultAsync(x => x.Email == email);
         }
 
         public async Task Update(Domain.Entities.v1.Persons.Person person)

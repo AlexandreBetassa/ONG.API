@@ -4,7 +4,7 @@ using ONG.Person.Api.Domain.Interfaces.v1.Repositories;
 
 namespace ONG.Person.Api.Domain.Commands.v1.Person.UpdatePerson
 {
-    public class UpdatePersonCommandHandler : BaseCommandhandler, IRequestHandler<UpdatePersonCommand, Unit>
+    public class UpdatePersonCommandHandler : BaseCommandHandler, IRequestHandler<UpdatePersonCommand, Unit>
     {
         public UpdatePersonCommandHandler(ILoggerFactory loggerFactory, IMapper mapper, IUnityOfWork unityOfWork)
             : base(mapper, unityOfWork)

@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using ONG.Person.Api.Domain.Commands.v1.Login;
 
 namespace ONG.Person.Api.Controllers.v1
 {
@@ -12,6 +13,12 @@ namespace ONG.Person.Api.Controllers.v1
         {
         }
 
+        [HttpPost]
+        public async Task<IActionResult> GenerateToken([FromBody] LoginCommand request)
+        {
+            var token = await Mediator.Send(request);
 
+            return Ok(token);
+        }
     }
 }
