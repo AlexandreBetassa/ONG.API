@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
-using ONG.Person.Api.Domain.Interfaces.v1;
+using ONG.Person.Api.Domain.Interfaces.v1.Repositories;
 
 namespace ONG.Person.Api.Domain.Commands.v1.Person.UpdatePerson
 {

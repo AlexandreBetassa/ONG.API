@@ -16,5 +16,12 @@ namespace ONG.Person.Api.Services.v1
         {
             return _passwordHasher.HashPassword(user, user.Password);
         }
+
+        public bool VerifyPassword(Domain.Entities.v1.Persons.Person user, string password)
+        {
+            var result = _passwordHasher.VerifyHashedPassword(user, user.Password, password);
+
+            return result == PasswordVerificationResult.Success;
+        }
     }
 }

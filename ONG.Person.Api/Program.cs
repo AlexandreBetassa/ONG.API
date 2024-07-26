@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using ONG.Person.Api.Domain.Commands.v1.Person.CreatePerson;
-using ONG.Person.Api.Domain.Interfaces.v1;
+using ONG.Person.Api.Domain.Interfaces.v1.Repositories;
 using ONG.Person.Api.Domain.Interfaces.v1.Services;
 using ONG.Person.Api.Infrastructure.Data;
 using ONG.Person.Api.Infrastructure.Data.Context;
@@ -33,7 +33,6 @@ builder.Services.AddAutoMapper(opt =>
 
 builder.Services.AddScoped(typeof(IData<>), typeof(Data<>));
 builder.Services.AddTransient(typeof(IPersonRepository<>), typeof(PersonRepository<>));
-builder.Services.AddTransient(typeof(IPetRepository<>), typeof(PetRepository<>));
 builder.Services.AddTransient<IUnityOfWork, UnityOfWork>();
 builder.Services.AddTransient<ILoggerFactory, LoggerFactory>();
 builder.Services.AddTransient<IPasswordServices, PasswordService>();

@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
 using MediatR;
 using ONG.Person.Api.Domain.Commands.v1;
-using ONG.Person.Api.Domain.Interfaces.v1;
+using ONG.Person.Api.Domain.Interfaces.v1.Repositories;
 using ONG.Person.Api.Domain.Interfaces.v1.Services;
 
 namespace ONG.Person.Api.Domain.Commands.v1.Person.CreatePerson
 {
-    public class CreatePersonCommandHandler : BaseCommandhandler, IRequestHandler<CreatePersonCommand, Unit>
+    public class CreatePersonCommandHandler : BaseCommandHandler, IRequestHandler<CreatePersonCommand, Unit>
     {
         private readonly IPasswordServices _passwordServices;   
 

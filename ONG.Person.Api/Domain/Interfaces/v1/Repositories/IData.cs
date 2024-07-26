@@ -1,6 +1,6 @@
 ﻿using ONG.Person.Api.Infrastructure.Data.Context;
 
-namespace ONG.Person.Api.Domain.Interfaces.v1
+namespace ONG.Person.Api.Domain.Interfaces.v1.Repositories
 {
     public interface IData<T> where T : class
     {

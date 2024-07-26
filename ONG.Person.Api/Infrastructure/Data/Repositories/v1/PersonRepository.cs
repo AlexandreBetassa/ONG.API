@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ONG.Person.Api.Domain.Interfaces.v1;
+using ONG.Person.Api.Domain.Interfaces.v1.Repositories;
 
 namespace ONG.Person.Api.Infrastructure.Data.Repositories.v1
 {
@@ -16,6 +16,13 @@ namespace ONG.Person.Api.Infrastructure.Data.Repositories.v1
             .Include(a => a.Address)
             .Include(c => c.Contact)
             .FirstOrDefaultAsync(person => person.Cpf == cpf);
+
+        public async Task<Domain.Entities.v1.Persons.Person> GetByEmailAsync(string email)
+        {
+            return await _data.Ctx.Set<Domain.Entities.v1.Persons.Person>()
+                .AsNoTracking()
+                .FirstOrDefaultAsync(x => x.Email.Equals(email, StringComparison.InvariantCultureIgnoreCase));
+        }
 
         public async Task Update(Domain.Entities.v1.Persons.Person person)
         {
