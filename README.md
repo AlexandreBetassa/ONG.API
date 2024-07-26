@@ -12,6 +12,13 @@ Este projeto inicialmente contará com os modulos:
  - Adoptions: Onde os colaboradores da ONG poderão verificar todas as requisições de adoções e os usuários poderão verificar suas solicitações, efetuar cancelamentos (A DESENVOLVER)
  - Login: Parte do projeto responsável para geração de tokens de acesso com o esquema JWT (EM DESENVOLVIMENTO).
 
+Contará com os perfis (EM DESENVOLVIMENTO):
+ - users: Público em geral
+ - admin: Gerenciadores com acesso total ao sistema (exceto a informações sensiveis)
+ - collaborators: Colaboradores da ONG.
+
+Este projeto já conta com uma classe que faz a conversão das senhas dos usuários para uma Hash, antes de salvar no banco de dados, para que esta, por ser uma informação sensivel não ficar exposta na forma pura e pessoas não autorizadas terem acesso. Futuramente, novos dados serão salvos da mesma maneira (ex.: CPF). A expectativa é que o projeto fique de acordo com a LGPD.
+
 ### Tecnologias utilizadas
 #### Backend
  - Entity Framework
