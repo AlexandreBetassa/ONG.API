@@ -25,3 +25,6 @@ Este projeto inicialmente contará com os modulos:
 #### Frontend
  - A Definir
 
+
+## OBSERVAÇÕES
+Projeto ainda em desenvolvimento e passará por refatoração para aplicação das boas práticas de programação e identificação de melhorias
