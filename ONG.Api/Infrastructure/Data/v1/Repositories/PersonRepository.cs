@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ONG.Api.Domain.Interfaces.v1.Repositories;
 
-namespace ONG.Api.Infrastructure.Data.Repositories.v1
+namespace ONG.Api.Infrastructure.Data.v1.Repositories
 {
     public class PersonRepository<T>(IData<Domain.Entities.v1.Persons.Person> data) : IPersonRepository<Domain.Entities.v1.Persons.Person>
     {
