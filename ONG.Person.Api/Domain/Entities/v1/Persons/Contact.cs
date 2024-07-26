@@ -1,6 +1,6 @@
 ﻿using ONG.Person.Api.Domain.Enums.v1;
 
-namespace ONG.Person.Api.Domain.Entities.v1
+namespace ONG.Person.Api.Domain.Entities.v1.Persons
 {
     public class Contact : BaseEntity
     {

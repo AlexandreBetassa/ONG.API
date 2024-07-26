@@ -1,12 +1,11 @@
 ﻿using AutoMapper;
 using MediatR;
 using ONG.Person.Api.Domain.Commands.v1;
-using ONG.Person.Api.Domain.Commands.v1.Person.CreatePerson;
-using ONG.Person.Api.Domain.Interfaces.v1;
+using ONG.Person.Api.Domain.Interfaces.v1.Repositories;
 
-namespace ONG.Person.Api.Domain.Queries.v1.GetPersonByCpf
+namespace ONG.Person.Api.Domain.Queries.v1.Person.GetPersonByCpf
 {
-    public class GetPersonByCpfQueryHandler : BaseCommandhandler, IRequestHandler<GetPersonByCpfQuery, GetPersonByCpfQueryResponse>
+    public class GetPersonByCpfQueryHandler : BaseCommandHandler, IRequestHandler<GetPersonByCpfQuery, GetPersonByCpfQueryResponse>
     {
 
         public GetPersonByCpfQueryHandler(ILoggerFactory loggerFactory, IMapper mapper, IUnityOfWork unityOfWork)
@@ -21,7 +20,7 @@ namespace ONG.Person.Api.Domain.Queries.v1.GetPersonByCpf
             {
                 Logger.LogInformation($"Iniciando metodo {nameof(GetPersonByCpfQueryHandler)}.{nameof(Handle)}");
 
-                var person = await UnityOfWork.PersonRepository.GetByCpf(request.Cpf) 
+                var person = await UnityOfWork.PersonRepository.GetByCpf(request.Cpf)
                     ?? throw new ArgumentException("Usuário não localizado!");
 
                 var response = Mapper.Map<GetPersonByCpfQueryResponse>(person);

@@ -12,8 +12,8 @@ using ONG.Person.Api.Infrastructure.Data.Context;
 namespace ONG.Person.Api.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240623140701_AddPostalCodeInAddress")]
-    partial class AddPostalCodeInAddress
+    [Migration("20240726181308_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,7 +25,7 @@ namespace ONG.Person.Api.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("ONG.Person.Api.Domain.Entities.v1.Address", b =>
+            modelBuilder.Entity("ONG.Person.Api.Domain.Entities.v1.Persons.Address", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -58,7 +58,7 @@ namespace ONG.Person.Api.Migrations
                     b.ToTable("Address");
                 });
 
-            modelBuilder.Entity("ONG.Person.Api.Domain.Entities.v1.Contact", b =>
+            modelBuilder.Entity("ONG.Person.Api.Domain.Entities.v1.Persons.Contact", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -76,7 +76,7 @@ namespace ONG.Person.Api.Migrations
                     b.ToTable("Contact");
                 });
 
-            modelBuilder.Entity("ONG.Person.Api.Domain.Entities.v1.Person", b =>
+            modelBuilder.Entity("ONG.Person.Api.Domain.Entities.v1.Persons.Person", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -95,7 +95,15 @@ namespace ONG.Person.Api.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -108,15 +116,50 @@ namespace ONG.Person.Api.Migrations
                     b.ToTable("Persons");
                 });
 
-            modelBuilder.Entity("ONG.Person.Api.Domain.Entities.v1.Person", b =>
+            modelBuilder.Entity("ONG.Person.Api.Domain.Entities.v1.Pet.Pet", b =>
                 {
-                    b.HasOne("ONG.Person.Api.Domain.Entities.v1.Address", "Address")
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Castrated")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Comments")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Gender")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("Photo")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Pets");
+                });
+
+            modelBuilder.Entity("ONG.Person.Api.Domain.Entities.v1.Persons.Person", b =>
+                {
+                    b.HasOne("ONG.Person.Api.Domain.Entities.v1.Persons.Address", "Address")
                         .WithMany()
                         .HasForeignKey("AddressId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ONG.Person.Api.Domain.Entities.v1.Contact", "Contact")
+                    b.HasOne("ONG.Person.Api.Domain.Entities.v1.Persons.Contact", "Contact")
                         .WithMany()
                         .HasForeignKey("ContactId")
                         .OnDelete(DeleteBehavior.Cascade)

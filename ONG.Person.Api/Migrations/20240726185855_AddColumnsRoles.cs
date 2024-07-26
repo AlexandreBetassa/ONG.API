@@ -5,25 +5,25 @@
 namespace ONG.Person.Api.Migrations
 {
     /// <inheritdoc />
-    public partial class AddPostalCodeInAddress : Migration
+    public partial class AddColumnsRoles : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
-                name: "PostalCode",
-                table: "Address",
-                type: "nvarchar(20)",
+                name: "Roles",
+                table: "Persons",
+                type: "nvarchar(max)",
                 nullable: false,
-                defaultValue: "");
+                defaultValue: "[]");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "PostalCode",
-                table: "Address");
+                name: "Roles",
+                table: "Persons");
         }
     }
 }

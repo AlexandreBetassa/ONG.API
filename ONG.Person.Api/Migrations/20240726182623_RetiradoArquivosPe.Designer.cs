@@ -12,8 +12,8 @@ using ONG.Person.Api.Infrastructure.Data.Context;
 namespace ONG.Person.Api.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240621214907_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20240726182623_RetiradoArquivosPe")]
+    partial class RetiradoArquivosPe
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,7 +25,7 @@ namespace ONG.Person.Api.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("ONG.Person.Api.Domain.Entities.v1.Address", b =>
+            modelBuilder.Entity("ONG.Person.Api.Domain.Entities.v1.Persons.Address", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -36,11 +36,6 @@ namespace ONG.Person.Api.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Complement")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Country")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Neighborhood")
@@ -49,6 +44,10 @@ namespace ONG.Person.Api.Migrations
 
                     b.Property<int>("Number")
                         .HasColumnType("int");
+
+                    b.Property<string>("PostalCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Street")
                         .IsRequired()
@@ -59,7 +58,7 @@ namespace ONG.Person.Api.Migrations
                     b.ToTable("Address");
                 });
 
-            modelBuilder.Entity("ONG.Person.Api.Domain.Entities.v1.Contact", b =>
+            modelBuilder.Entity("ONG.Person.Api.Domain.Entities.v1.Persons.Contact", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -77,7 +76,7 @@ namespace ONG.Person.Api.Migrations
                     b.ToTable("Contact");
                 });
 
-            modelBuilder.Entity("ONG.Person.Api.Domain.Entities.v1.Person", b =>
+            modelBuilder.Entity("ONG.Person.Api.Domain.Entities.v1.Persons.Person", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -96,7 +95,15 @@ namespace ONG.Person.Api.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -109,15 +116,15 @@ namespace ONG.Person.Api.Migrations
                     b.ToTable("Persons");
                 });
 
-            modelBuilder.Entity("ONG.Person.Api.Domain.Entities.v1.Person", b =>
+            modelBuilder.Entity("ONG.Person.Api.Domain.Entities.v1.Persons.Person", b =>
                 {
-                    b.HasOne("ONG.Person.Api.Domain.Entities.v1.Address", "Address")
+                    b.HasOne("ONG.Person.Api.Domain.Entities.v1.Persons.Address", "Address")
                         .WithMany()
                         .HasForeignKey("AddressId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ONG.Person.Api.Domain.Entities.v1.Contact", "Contact")
+                    b.HasOne("ONG.Person.Api.Domain.Entities.v1.Persons.Contact", "Contact")
                         .WithMany()
                         .HasForeignKey("ContactId")
                         .OnDelete(DeleteBehavior.Cascade)
