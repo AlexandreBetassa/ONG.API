@@ -2,7 +2,7 @@
 
 namespace ONG.Person.Api.Domain.Commands.v1.Person.CreatePerson.Validators
 {
-    public class CreatePersonContactCommandValidator : AbstractValidator<PersonContactCommand>
+    public class CreatePersonContactCommandValidator : AbstractValidator<CreatePersonContactCommand>
     {
         public CreatePersonContactCommandValidator()
         {
