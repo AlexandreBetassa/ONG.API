@@ -2,7 +2,7 @@
 Este projeto está sendo desenvolvido como estudo para a prática de desenvolvimento de software, aplicação de design patterns e aplicação de boas práticas de programação, além de ser utilizado para um projeto de graduação.
 
 ## Objetivo da aplicação
-Está aplicação tem como objetivo ser o backend de uma aplicação WEB (que ainda será desenvolvida), onde uma ONG disponibilizará e efetuara o gerenciamento de de solicitações de adoções de animais bem como clientes poderão se cadastrarem e efetuarem solicitações para a adoção de algum pet disponivel.
+Está aplicação tem como objetivo ser o backend de uma aplicação WEB (que ainda será desenvolvida), onde uma ONG disponibilizará e efetuara o gerenciamento de solicitações de adoções de animais bem como clientes poderão se cadastrarem e efetuarem solicitações para a adoção de algum pet disponivel.
 
 ## Caracteristicas gerais
 ### Módulos
@@ -17,7 +17,7 @@ Contará com os perfis (EM DESENVOLVIMENTO):
  - admin: Gerenciadores com acesso total ao sistema (exceto a informações sensiveis)
  - collaborators: Colaboradores da ONG.
 
-Este projeto já conta com uma classe que faz a conversão das senhas dos usuários para uma Hash, antes de salvar no banco de dados, para que esta, por ser uma informação sensivel não ficar exposta na forma pura e pessoas não autorizadas terem acesso. Futuramente, novos dados serão salvos da mesma maneira (ex.: CPF). A expectativa é que o projeto fique de acordo com a LGPD.
+Este projeto já conta com uma classe que faz a conversão das senhas dos usuários para uma Hash, antes de salvar no banco de dados, para que esta, por ser uma informação sensivel não fique exposta na forma pura e pessoas não autorizadas tenham acesso. Futuramente, novos dados serão salvos da mesma maneira (ex.: CPF). A expectativa é que o projeto fique de acordo com a LGPD.
 
 ### Tecnologias utilizadas
 #### Backend
@@ -34,4 +34,4 @@ Este projeto já conta com uma classe que faz a conversão das senhas dos usuár
 
 
 ## OBSERVAÇÕES
-Projeto ainda em desenvolvimento e passará por refatoração para aplicação das boas práticas de programação e identificação de melhorias
+Projeto ainda em desenvolvimento e passará por refatoração para aplicação das boas práticas de programação (ex.: SOLID, CleanCode) e identificação de melhorias
